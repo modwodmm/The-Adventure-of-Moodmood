@@ -14,6 +14,7 @@ public class Inventory {
 			if(inventory[i].isEmpty()) {
 				inventory[i] = newItem;
 				System.out.println(newItem + " has been added to your inventory!");
+				isFree = true;
 				break;
 			}
 		}
