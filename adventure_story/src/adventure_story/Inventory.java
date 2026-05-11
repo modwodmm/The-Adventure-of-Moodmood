@@ -2,32 +2,60 @@ package adventure_story;
 
 public class Inventory {
 	
-//Inventory	
-	static String[] inventory = {"", "", "", "", "", "", "", "", "", ""};
+	String[] inventory;
+	int coins;
 	
-//Adds new items	
-	public static void addItem(String newItem) {
+	public Inventory(){
+		inventory = new String[10];
+		coins = 5;
+	}
+	
+	public void addItem(String newItem) {
 		
-		boolean isFree = false;
+		boolean freeSpace = false;
 		
 		for(int i = 0; i < inventory.length; i++) {
-			if(inventory[i].isEmpty()) {
+			if(inventory[i] == null) {
 				inventory[i] = newItem;
-				System.out.println(newItem + " has been added to your inventory!");
-				isFree = true;
+				freeSpace = true;
 				break;
 			}
 		}
-		if(!isFree) {
-			System.out.println("You don't have any space in your inventory!");
+		if(!freeSpace) {
+			System.out.println("Your inventory is full!!");
 		}
 	}
 	
-//Shows inventory	
-	public static void showInventory() {
-		
-		for(int i = 0; i < inventory.length; i++) {
-			System.out.println(inventory[i]);
+	public void removeItem(String usedItem) {
+		for(int i = 0; i < inventory.length; i++){
+			if(inventory[i] != null && inventory[i].equals(usedItem)) {
+				inventory[i] = null;
+				break;
+			}
 		}
 	}
+	
+	public void showInventory() {
+		System.out.println("Inventory:");
+		for(int i = 0; i < inventory.length; i++) {
+			if(inventory[i] != null) {
+				System.out.println(inventory[i]);
+			}
+		}
+		System.out.println("Coins: \n" + coins + " coins");
+	}
+	
+	public void addCoins(int newCoins) {
+		coins += newCoins;
+	}
+	
+	public void removeCoins(int usedCoins) {
+		if(coins < usedCoins) {
+			System.out.println("You don't have enough coins to use!!");
+		}
+		else {
+			coins -= usedCoins;
+		}
+	}
+	
 }

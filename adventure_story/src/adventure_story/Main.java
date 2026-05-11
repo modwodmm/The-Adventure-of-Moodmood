@@ -6,6 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		Inventory inventory = new Inventory();
+		
 		Scanner scanner = new Scanner(System.in);
 		
 //Start of adventure		
@@ -17,7 +19,7 @@ public class Main {
 	    if(choice1 == 1) {
 	    	System.out.println("You learned fishing and got a fishing rod from the stranger!\nAdvice: Got lucky this time, stay away from strangers.");
 	    	String newItem = "Fishing rod";
-	    	Inventory.addItem(newItem);
+	    	inventory.addItem(newItem);
 	    	System.out.println("You are crossing a river!\n 1. Fish.\n 2. Continue adventure.");
 	    	
 //Second Choice	    	
@@ -25,7 +27,7 @@ public class Main {
 	    	if(choice2 == 1) {
 	    		System.out.println("You caught a salmon!\nAdvice: This fish can be cooked for eating.");
 	    		newItem = "Salmon";
-	    		Inventory.addItem(newItem);
+	    		inventory.addItem(newItem);
 	    	}
 	    	else {
 	    		System.out.println("You continued your adventure!\nAdvice: You might need fish to eat later.");
@@ -42,17 +44,18 @@ public class Main {
 	    case 1 : 
 	    	System.out.println("You took the axe without asking.\nAdvice: That is called stealing, its best if you don't do it.");
 	    	String newItem = "Axe";
-	    	Inventory.addItem(newItem);
+	    	inventory.addItem(newItem);
 	    	break;
 	    case 2 :
 	    	System.out.println("You asked the guy if you can take the axe. He asked for 7 silver coins.");
-	    	Inventory.showInventory();
+	    	inventory.showInventory();
 	    	System.out.println("1. Buy the axe\n2. Curse him and walk away");
 
 //Forth choice	    	
 	    	int choice4 = scanner.nextInt();
 	    	if(choice4 == 1) {
-	    		System.out.println("You don't enough coins to buy the axe!");
+	    		int usedCoins = 7;
+	    		inventory.removeCoins(usedCoins);
 	    	}
 	    	else {
 	    		System.out.println("You cursed him and walked away.\nAdvice: Learn some manners!");
