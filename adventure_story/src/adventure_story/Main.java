@@ -18,16 +18,14 @@ public class Main {
 //First choice	    
 	    if(choice1 == 1) {
 	    	System.out.println("You learned fishing and got a fishing rod from the stranger!\nAdvice: Got lucky this time, stay away from strangers.");
-	    	String newItem = "Fishing rod";
-	    	inventory.addItem(newItem);
+	    	inventory.addItem("Fishing rod");
 	    	System.out.println("You are crossing a river!\n 1. Fish.\n 2. Continue adventure.");
 	    	
 //Second Choice	    	
 	    	int choice2 = scanner.nextInt();
 	    	if(choice2 == 1) {
 	    		System.out.println("You caught a salmon!\nAdvice: This fish can be cooked for eating.");
-	    		newItem = "Salmon";
-	    		inventory.addItem(newItem);
+	    		inventory.addItem("Salmon");
 	    	}
 	    	else {
 	    		System.out.println("You continued your adventure!\nAdvice: You might need fish to eat later.");
@@ -43,8 +41,7 @@ public class Main {
 	    switch(choice3) {
 	    case 1 : 
 	    	System.out.println("You took the axe without asking.\nAdvice: That is called stealing, its best if you don't do it.");
-	    	String newItem = "Axe";
-	    	inventory.addItem(newItem);
+	    	inventory.addItem("Axe");
 	    	break;
 	    case 2 :
 	    	System.out.println("You asked the guy if you can take the axe. He asked for 7 silver coins.");
@@ -54,8 +51,7 @@ public class Main {
 //Forth choice	    	
 	    	int choice4 = scanner.nextInt();
 	    	if(choice4 == 1) {
-	    		int usedCoins = 7;
-	    		inventory.removeCoins(usedCoins);
+	    		inventory.removeCoins(7);
 	    	}
 	    	else {
 	    		System.out.println("You cursed him and walked away.\nAdvice: Learn some manners!");
@@ -67,6 +63,8 @@ public class Main {
 	    }
 //End	    
 	    System.out.println("The adventure ends here. It shall continue later!");
+	    
+	    scanner.close();
 
 	}
 
