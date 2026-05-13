@@ -53,30 +53,53 @@ public class Inventory {
 //Adds coins	
 	public void addCoins(int newCoins) {
 		coins += newCoins;
-		System.out.println("You earned " + newCoins + "coins");
+		System.out.println("You earned " + newCoins + " coins");
 	}
 	
 //Removes coins	
 	public void removeCoins(int usedCoins) {
 		if(coins < usedCoins) {
-			System.out.println("You don't have enough coins to use!!");
+			System.out.println("You don't have enough coins!!");
 		}
 		else {
 			coins -= usedCoins;
-			System.out.println(usedCoins + "coins were used");
+			System.out.println(usedCoins + " coins were used");
 		}
 	}
 	
 //Handles purchasing logic	
 	public void buyItem(String newItem, int usedCoins) {
 		if(coins < usedCoins) {
-			System.out.println("You don't have enough coin!!");
+			System.out.println("You don't have enough coins!!");
 		}
 		else {
 			coins -= usedCoins;
 			addItem(newItem);
 			System.out.println("You bought " + newItem);
-			System.out.println(usedCoins + "coins were used");
+			System.out.println(usedCoins + " coins were used");
+		}
+	}
+	
+//Buys property	
+	public void buyProperty(String property, int usedCoins) {
+		if(coins < usedCoins) {
+			System.out.println("You don't have enough coins!!");
+		}
+		else {
+			coins -= usedCoins;
+			System.out.println("You bought " + property);
+		}
+	}
+	
+//Books trip	
+	public void bookTrip(int usedCoins, String trip) {
+		if(coins < usedCoins) {
+			System.out.println("You don't have enough coins!!");
+		}
+		else {
+			coins -= usedCoins;
+			System.out.println("You booked " + trip);
+			System.out.println("Now your mind is fresh and bank account a bit lighter!");
 		}
 	}
 	
