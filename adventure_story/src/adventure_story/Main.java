@@ -84,11 +84,11 @@ public class Main {
         	    	switch(choice6) {
         	    	case 1 :
         	    		boolean inMart = true;
-//Supermark loop        	    		
+//Supermart loop        	    		
         	    		while(inMart) {
         	    			System.out.println("You are in the supermart. Buy any of the following:");
             	    		System.out.println("1. Milk - 1 coin\n2. Bread - 2 coins\n3. Wine - 5 coins\n4. Leave");
-            	    		
+            	    		inventory.showInventory();
 //7th choice	    		
             	    		int choice7 = scanner.nextInt();
             	    		switch(choice7) {
@@ -153,6 +153,7 @@ public class Main {
         	    				while(checkingTools) {
         	    					System.out.println("You are checking out the tools. Buy any of the following for your further adventure:\n(More tools will be unlocked as you progress.)");
             	    				System.out.println("1. Axe - 5 coins\n2. Pickaxe - 3 coins\n3. Hoe - 4 coins\n4. Fishing rod - 2 coins\n5. Leave");
+            	    				inventory.showInventory();
 //11th choice    				
             	    				int choice11 = scanner.nextInt();
             	    				switch(choice11) {

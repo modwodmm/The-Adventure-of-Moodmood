@@ -1,51 +1,45 @@
 package adventure_story;
 
+import java.util.ArrayList;
+
 public class Inventory {
 	
 //Inventory	
-	String[] inventory;
+	ArrayList<String> inventory;
 	int coins;
 		
 //Constructor	
 	public Inventory(){
-		inventory = new String[10];
+		inventory = new ArrayList<>();
 		coins = 5;
 	}
 	
 //Adds new items	
 	public void addItem(String newItem) {
-		
-		boolean freeSpace = false;
-		
-		for(int i = 0; i < inventory.length; i++) {
-			if(inventory[i] == null) {
-				inventory[i] = newItem;
-				freeSpace = true;
-				break;
-			}
+		if(inventory.contains(newItem)) {
+			System.out.println("You already have the item!");
 		}
-		if(!freeSpace) {
-			System.out.println("Your inventory is full!!");
+		else {
+			inventory.add(newItem);
+			System.out.println(newItem + " has been added to your inventory.");
 		}
 	}
 	
 //Removes Items	
 	public void removeItem(String usedItem) {
-		for(int i = 0; i < inventory.length; i++){
-			if(inventory[i] != null && inventory[i].equals(usedItem)) {
-				inventory[i] = null;
-				break;
-			}
+		if(inventory.remove(usedItem)) {
+			System.out.println(usedItem + " has been removed from your inventory.");
+		}
+		else {
+			System.out.println("There is no such item in your inventory!");
 		}
 	}
 	
 //Shows Items	
 	public void showInventory() {
 		System.out.println("Inventory:");
-		for(int i = 0; i < inventory.length; i++) {
-			if(inventory[i] != null) {
-				System.out.println(inventory[i]);
-			}
+		for(int i = 0; i < inventory.size(); i++) {
+			System.out.println(inventory.get(i));
 		}
 		System.out.println("Coins: \n" + coins + " coins");
 	}
